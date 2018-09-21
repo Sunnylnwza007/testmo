@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <section class="hero is-primary">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Login
+      </h1>
+      <h2 class="subtitle">
+      </h2>
+    </div>
+  </div>
+</section>
+    
+</head>
+<body>
+     <div class="section ">
+        <div class="container is-widescreen">
+         <label class="label" id="show" style="color:red"></label>
+            <div class="field">
+                <label class="label">Username</label>
+                    
+                         <input class="input" type="text" placeholder="Username" id="user">
+                    
+            </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+             
+                    <input class="input" type="password" placeholder="Password" id="pass">
+                   
+       
+                </div>
+
+                <div class="field">
+                <label class="label">Autobot</label>
+                    <div class="control">
+                         <input class="input is-left" type="text is-right" placeholder="Fill number" id="bot" onclick="bot()">
+                         <p id="bot1"></p>
+                    </div>
+            </div>
+
+            <a href="./forget.html">Forget Password ?</a>
+
+            <div class="section">
+        <a id="login1" ><button class="button is-link is-large is-fullwidth" id="login" onclick="check1()">Login</button></a>
+         </div>
+         </div>
+         
+    </div>
+    <script>
+       
+        
+
+        function check1(){
+            var user1 = document.getElementById("user");
+            var password1 = document.getElementById("pass");
+            var bot1 = document.getElementById("bot");
+            var c = document.getElementById("bot1");
+            var count = 0;
+            var u = "admin";
+            var p = "1234";
+            var num;
+             
+            if (user1.value == u && password1.value == p){
+                user1.classList.remove("is-danger")
+                password1.classList.remove("is-danger")
+                document.getElementById("show").innerHTML=""
+                count++;
+               
+            }else if (user1.value == "" && password1.value == ""){
+                document.getElementById("user").classList.add("is-danger")
+                document.getElementById("pass").classList.add("is-danger")
+                document.getElementById("show").innerHTML="error1"
+            }else if (user1.value != u && password1.value != p){
+                document.getElementById("user").classList.add("is-danger")
+                document.getElementById("pass").classList.add("is-danger")
+                document.getElementById("show").innerHTML="error2"
+            }
+
+            if (bot1.value == document.getElementById("bot1").value){
+                count++;
+            }else{
+                document.getElementById("bot").classList.add("is-danger")
+            }
+
+            if (count==1){
+                document.getElementById("login1").setAttribute("href","success.html");
+            }
+        }
+
+        function bot(){
+            var num = Math.floor(Math.random() * 9999)+1000; 
+            document.getElementById("bot1").innerHTML = "> "+num;
+            
+        }    
+    </script>
+
+    
+</body>
+</html>

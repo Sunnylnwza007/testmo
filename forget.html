@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        Forget Password
+      </h1>
+      <h2 class="subtitle">
+        
+      </h2>
+    </div>
+  </div>
+</section>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="section">
+    <div class="field">
+                <label class="label" id="show" style="color:red"></label>
+                <label class="label">Email</label>
+                <input class="input" type="text" placeholder="Email" id="user">
+                    
+    </div>
+    <a id="login1" ><button class="button is-link is-large is-fullwidth" id="login" onclick="check1()">Login</button></a>
+    </div>
+    </div>
+    
+    <script>
+       function check1(){
+            var e = document.getElementById("user").value;
+            var n = e.includes("@gmail.com",0)
+
+            if (n){
+                document.getElementById("show").innerHTML = "The Password had Sent to the Email"
+                document.getElementById("user").classList.remove("is-danger")
+            }else{
+                document.getElementById("user").classList.add("is-danger")
+            }
+        }
+    </script>
+</body>
+</html>
